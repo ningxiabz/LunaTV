@@ -72,7 +72,7 @@
 ```yml
 services:
   moontv-core:
-    image: ghcr.io/ningxiabz/lunatv:latest
+    image: ghcr.io/moontechlab/lunatv:latest
     container_name: moontv-core
     restart: on-failure
     ports:
@@ -81,6 +81,7 @@ services:
       - USERNAME=admin
       - PASSWORD=admin_password
       - NEXT_PUBLIC_STORAGE_TYPE=kvrocks
+      - NEXT_PUBLIC_ENABLE_REGISTER=true
       - KVROCKS_URL=redis://moontv-kvrocks:6666
     networks:
       - moontv-network
@@ -106,7 +107,7 @@ volumes:
 ```yml
 services:
   moontv-core:
-    image: ghcr.io/ningxiabz/lunatv:latest
+    image: ghcr.io/moontechlab/lunatv:latest
     container_name: moontv-core
     restart: on-failure
     ports:
@@ -115,6 +116,7 @@ services:
       - USERNAME=admin
       - PASSWORD=admin_password
       - NEXT_PUBLIC_STORAGE_TYPE=redis
+      - NEXT_PUBLIC_ENABLE_REGISTER=true
       - REDIS_URL=redis://moontv-redis:6379
     networks:
       - moontv-network
